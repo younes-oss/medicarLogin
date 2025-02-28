@@ -4,6 +4,7 @@ import com.learn.model.Patient;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class PatientDao {
     private Connection connection;
@@ -19,10 +20,10 @@ public class PatientDao {
 
         try (PreparedStatement stmt1 = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
              PreparedStatement stmt2 = connection.prepareStatement(sql2)) {
-
+        	 String hashedPassword = BCrypt.hashpw(patient.getPassword(), BCrypt.gensalt()); 
             stmt1.setString(1, patient.getFullName());
             stmt1.setString(2, patient.getEmail());
-            stmt1.setString(3, patient.getPassword());
+            stmt1.setString(3, hashedPassword);
             stmt1.executeUpdate();
 
             ResultSet rs = stmt1.getGeneratedKeys();
