@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/medicare_login";
     private static final String USER = "root"; // Remplace par ton utilisateur MySQL
-    private static final String PASSWORD = ""; // Remplace par ton mot de passe MySQL
+    private static final String PASSWORD = "admin"; // Remplace par ton mot de passe MySQL
     private static Connection connection;
 
     static {
