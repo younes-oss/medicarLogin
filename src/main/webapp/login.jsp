@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,12 +52,30 @@
         a:hover {
             text-decoration: underline;
         }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Connexion</h2>
-        <form action="LoginServlet" method="post">
+        
+        <form action="login" method="post">
+            <%-- Message d'erreur affiché ici dans le formulaire --%>
+            <%
+                String errorMessage = (String) request.getAttribute("errorMessage");
+                if (errorMessage != null) {
+            %>
+                <div class="error-message">
+                    <%= errorMessage %>
+                </div>
+            <%
+                }
+            %>
+
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Mot de passe" required>
             <button type="submit">Se connecter</button>

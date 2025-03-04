@@ -10,7 +10,7 @@ import java.sql.SQLException;
 @WebListener
 public class AppListener implements ServletContextListener {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/medicare_db";
+    private static final String URL = "jdbc:mysql://localhost:3306/medicare_login";
     private static final String USER = "root";
     private static final String PASSWORD = "admin";
 

@@ -109,9 +109,9 @@ public class UserServlet extends HttpServlet {
             session.setAttribute("user", user);
 
             if ("doctor".equals(user.getRole())) {
-                response.sendRedirect("doctor_dashboard.jsp");
+                response.sendRedirect("doctorDashboard.jsp");
             } else if ("patient".equals(user.getRole())) {
-                response.sendRedirect("patient_dashboard.jsp");
+                response.sendRedirect("patientDashboard.jsp");
             }
         } else {
             request.setAttribute("error", "Email ou mot de passe incorrect !");
